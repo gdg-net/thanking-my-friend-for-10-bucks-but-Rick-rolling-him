@@ -19,14 +19,22 @@
     font-size: 1.2em;
   }
 </style>
+<script>
+  window.onload = function() {
+    localStorage.setItem('loadedFlag', 'true');
+    setTimeout(function() {
+      if (localStorage.getItem('loadedFlag') === 'true') {
+        localStorage.removeItem('loadedFlag');
+        window.location.href = 'rickroll.mp4';
+      } else {
+        localStorage.setItem('loadedFlag', 'true');
+      }
+    }, 2000);
+  };
+</script>
 </head>
 <body>
 <h1>Thank You!</h1>
 <p>Thanks for giving me $10! You're awesome!</p>
-<script>
-  window.addEventListener('scroll', () => {
-    window.location.href = 'rickroll.mp4';
-  });
-</script>
 </body>
 </html>
